@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anomaly-tracker"
+version = "0.1.0"
+description = "Finance anomaly detection and investigation dashboard for synthetic accounts payable data"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2,<3",
+    "numpy>=1.26,<3",
+    "streamlit>=1.38,<2",
+    "plotly>=5.22,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
